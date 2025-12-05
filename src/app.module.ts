@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TodoList } from './todo_lists/todo_list.entity';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/items.entity';
+import { BullModule } from '@nestjs/bull';
 
 @Module({
   imports: [
@@ -19,6 +20,12 @@ import { Item } from './items/items.entity';
       entities: [TodoList, Item],
       synchronize: true,
       logging: true,
+    }),
+    BullModule.forRoot({
+      redis: {
+        host: 'localhost',
+        port: 6379,
+      },
     }),
   ],
   controllers: [],

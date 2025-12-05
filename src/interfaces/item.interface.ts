@@ -5,3 +5,9 @@ export interface Item {
   status: string;
   description?: string;
 }
+
+export interface ICompleteAllItemsResult {
+  completed: number;
+  failed: number;
+  total: number;
+}

@@ -19,7 +19,6 @@ export class ItemsProcessor {
     let failed = 0;
 
     for (const item of items) {
-      console.log(`Completing item with ID ${item.id}...`, item);
       try {
         await this.itemsService.update(item.id, { status: 'Completed' });
         completed++;
